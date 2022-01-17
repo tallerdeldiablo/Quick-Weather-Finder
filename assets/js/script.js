@@ -3,8 +3,37 @@ var wButton = document.getElementById("fetch-button");
 var weaEl = document.getElementById("wea");
 const theKey = "d3cead6b24ef04751594f3f9dfdaba4a";
 const theUrl = "api.openweathermap.org/data/2.5/weather?id=";
-var date = moment().format("MMMM Do, YYYY, H a");
-var tomorro = moment().add(1, "days").format("MMMM Do");
+ var date = moment().format("MMMM Do, YYYY");
+var date = moment()
+var todayDate = moment();
+
+var day1 = todayDate.format("DD");
+console.log(todayDate)
+
+var day2 = todayDate.add(1, 'days').format("MMMM Do, YYYY");
+console.log(todayDate)
+
+var day3 = todayDate.add(1, 'days').format("MMMM Do, YYYY");
+console.log(todayDate)
+
+var day4 = todayDate.add(1, 'days').format("MMMM Do, YYYY");
+console.log(todayDate)
+
+var day5 = todayDate.add(1, 'days').format("MMMM Do, YYYY");
+console.log(todayDate)
+
+var day6 = todayDate.add(1, 'days').format("MMMM Do, YYYY");
+console.log(day6)
+
+var fivedays = [day2,day3,day4,day5,day6] 
+
+
+
+var month = date.format('M');
+var day   = date.format('D');
+var year  = date.format('YYYY');
+console.log(day)
+console.log(year)
 
 var obj = {};
 document.getElementById("Tdate").innerHTML = date;
@@ -129,17 +158,17 @@ function getApi(acity) {
               pTempe.setAttribute("class", "list-group-item");
               pWind.setAttribute("class", "list-group-item");
               pUVI.setAttribute("class", "list-group-item");
+              buttonCit.setAttribute("class", "list-group-item text-primary");
+              buttonCit.textContent = " " + fivedays[i];
+              // tContent = "Day" + i;
 
-              buttonCit.textContent = "Day" + i;
-              tContent = "Day" + i;
-
-              uli.textContent = "Temp" + elwe.daily[i].temp.day;
+              uli.textContent = "Temp " +Math.round(elwe.daily[i].temp.day); 
               pWind.textContent = "Wind " + elwe.daily[i].wind_speed;
               pTempe.textContent = "humid " + elwe.daily[i].humidity;
               pUVI.textContent = "uvi " + elwe.daily[i].uvi;
               //pWind.textContent = "Temperature " +  elwe.daily[i].humidity;
 
-              //ul.appendChild(buttonCit);
+              ul.appendChild(buttonCit);
               ul.appendChild(uli);
               ul.appendChild(pWind);
               ul.appendChild(pTempe);
@@ -153,8 +182,8 @@ function getApi(acity) {
 
           document.getElementById("nameCity").innerHTML =
             data.name +
-            "<br> Temperature " +
-            data.main.temp +
+            "<br> Temperature " + Math.round(data.main.temp);
+             +
             " humidity " +
             data.main.humidity +
             "<br> Wind speed" +
