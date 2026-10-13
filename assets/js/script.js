@@ -180,14 +180,8 @@ function getApi(acity) {
 
           createFiveDays();
 
-          document.getElementById("nameCity").innerHTML =
-            data.name +
-            "<br> Temperature " + Math.round(data.main.temp);
-             +
-            " humidity " +
-            data.main.humidity +
-            "<br> Wind speed" +
-            data.wind.speed;
+          document.getElementById("nameCity").textContent =
+            data.name + " - Temperature " + Math.round(data.main.temp);
           document.getElementById("iconWea").src =
             "https://openweathermap.org/img/wn/" + iconURL;
 
