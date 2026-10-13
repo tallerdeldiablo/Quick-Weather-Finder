@@ -181,7 +181,10 @@ function getApi(acity) {
           createFiveDays();
 
           document.getElementById("nameCity").textContent =
-            data.name + " - Temperature " + Math.round(data.main.temp);
+            data.name +
+            " - Temperature " + Math.round(data.main.temp) +
+            " - Humidity " + data.main.humidity +
+            " - Wind speed " + data.wind.speed;
           document.getElementById("iconWea").src =
             "https://openweathermap.org/img/wn/" + iconURL;
 
